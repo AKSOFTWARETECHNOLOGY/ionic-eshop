@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+      <img src="assets/icon/vi-logo.png" alt="VI" style="height: 50px;" />
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div>
+        <ion-list>
+          <ion-list-header>
+            Product Category
+          </ion-list-header>
+        </ion-list>
+        <ion-list class="home-recent-products"  *ngFor="let data of categoryLists;let i=index;">
+            
+              <ion-item (click)="showCategoryPage('product-list',data.cid)">
+                  <ion-thumbnail slot="start">
+                      <img src="{{data.cimage}}">
+                    </ion-thumbnail>
+                    <ion-label>
+                      <h2>{{data.ctitle}}</h2>
+                    </ion-label>
+              </ion-item>
+
+          </ion-list>
+      
+       
+    </div>
+  <!--
+        <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="home" (click)="showPage('home')">
+            <ion-icon name="home"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="category" (click)="showPage('category')">
+            <ion-icon name="list-box"></ion-icon>
+            <ion-label>Category</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="offer" (click)="showPage('offer')">
+            <ion-icon name="cash"></ion-icon>
+            <ion-label>Offer</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="about" (click)="showPage('about')">
+            <ion-icon name="information-circle"></ion-icon>
+            <ion-label>About</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+    -->    
+  </ion-content>
+  

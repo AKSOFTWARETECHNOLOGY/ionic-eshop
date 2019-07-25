@@ -1,14 +1,94 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <img src="assets/icon/vc-logo.png" alt="VI" style="height: 50px;" />
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div style="min-width: 100%; min-height: 200px; background: #cacaca;">
+    <ion-slides pager="true" [options]="slideOpts">
+      
+      <ion-slide *ngFor="let data of homeSliders;let i=index;">
+          <a href="javascript:void(0);" (click)="showCategoryPage('product-list',data.cid)" class="mouse-pointer">
+            <img src="{{data.cimage}}" title="{{data.ctitle}}" />
+          </a>
+      </ion-slide>
+
+    </ion-slides>
   </div>
+
+  <div class="category-list">
+      <style>
+      div.category-list ion-card-title {
+        text-transform: uppercase;
+        text-align: center; 
+      }
+      </style>
+      <!--
+        <ion-list-header>
+          Product Category
+        </ion-list-header>
+      -->
+        <ion-list class="category-products" *ngFor="let data of homeBanners;let i=index;">
+            
+          <ion-card (click)="showCategoryPage('product-list',data.cid)">
+            <img src="{{data.cimage}}"/>
+            <ion-card-header>
+              <ion-card-title>{{data.ctitle}}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        
+        </ion-list>
+  </div>
+
+  <style>
+      div.recent-product ion-list-header { font-size: 20px; text-transform: uppercase;}
+      div.recent-product ion-list { width:50%; float: left;  }  
+      div.recent-product ion-list ion-card-title { text-transform: uppercase; height: 50px; overflow: hidden;}
+  </style>
+  
+  <div class="recent-product">
+        <ion-list-header>
+          Recent Products
+        </ion-list-header>
+
+        <ion-list class="home-recent-products" *ngFor="let data of homeRecentProducts;let i=index;">
+                
+              <ion-card (click)="showProductPage('product-detail',data.pid)">
+                <img src="{{data.pimage}}"/>
+                <ion-card-header>
+                  <ion-card-subtitle>{{data.ctitle}}</ion-card-subtitle>
+                  <ion-card-title>{{data.ptitle}}</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+             
+        </ion-list>
+    
+     
+  </div>
+<!--
+        <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="home" (click)="showPage('home')">
+            <ion-icon name="home"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="category" (click)="showPage('category')">
+            <ion-icon name="list-box"></ion-icon>
+            <ion-label>Category</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="offer" (click)="showPage('offer')">
+            <ion-icon name="cash"></ion-icon>
+            <ion-label>Offer</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="about" (click)="showPage('about')">
+            <ion-icon name="information-circle"></ion-icon>
+            <ion-label>About</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+    -->
 </ion-content>

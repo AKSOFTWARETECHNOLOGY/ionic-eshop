@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <img src="assets/icon/vc-logo.png" alt="VI" style="height: 50px;" />
+  </ion-toolbar>
+</ion-header>
+<style>
+ion-card-title { text-transform: uppercase; }
+</style>
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{CategoryDetails.ctitle}}</ion-card-subtitle>
+          <ion-card-title>{{ProductDetails.ptitle}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+    <div class="slider">
+        <ion-slides pager="true" [options]="slideOpts">
+          
+          <ion-slide *ngFor="let data of ProductSliders;let i=index;">
+                <img src="{{data.pimage}}" title="{{data.ptitle}}" />
+          </ion-slide>
+    
+        </ion-slides>
+    </div>
+    <div padding class="price-info">
+        <div class="">
+          MRP:&nbsp;
+          <span *ngIf=" ProductDetails.pprice_was != ''" class="price-was">{{ProductDetails.pprice_was}}</span> &nbsp;&nbsp; 
+          <span *ngIf=" ProductDetails.pprice_now != ''" class="price-now">{{ProductDetails.pprice_now}}</span>&nbsp; 
+          | &nbsp;<span *ngIf=" ProductDetails.pprice_offer != ''" class="price-offer">{{ProductDetails.pprice_offer}}</span>
+        </div>  
+    </div>  
+    <div class="tabs">
+        
+
+      <div padding>
+        <ion-title>Product Details</ion-title>
+      </div>  
+        <style>
+        div.tab-wrap label { font-size: 12px; }
+        </style>
+        <div class="tab-wrap">
+          
+            <input type="radio" name="tabs" id="tab1" checked>
+            <div class="tab-label-content" id="tab1-content">
+              <label for="tab1">DESCRIPTION</label>
+              <div class="tab-content" style="white-space: pre-line!important;">
+                  {{ProductDetails.pdescription}}
+              </div>
+            </div>
+             
+            <input type="radio" name="tabs" id="tab2">
+            <div class="tab-label-content" id="tab2-content">
+              <label for="tab2">INGREDIENTS</label>
+              <div class="tab-content" style="white-space: pre-line!important;">
+                  {{ProductDetails.pingredients}}
+              </div>
+            </div>
+            
+            <input type="radio" name="tabs" id="tab3">
+            <div class="tab-label-content" id="tab3-content">
+              <label for="tab3">TOOLS</label>
+              <div class="tab-content" style="white-space: pre-line!important;">
+                  {{ProductDetails.ptools}}
+              </div>
+            </div>
+          
+             <input type="radio" name="tabs" id="tab4">
+             <div class="tab-label-content" id="tab4-content">
+              <label for="tab4">HOW TO USE</label>
+              <div class="tab-content" style="white-space: pre-line!important;">
+                  {{ProductDetails.phowtouse}}
+              </div>
+            </div>
+            
+            <div class="slide"></div>
+          
+        </div>
+        
+         
+    </div>
+
+<!--
+        <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="home" (click)="showPage('home')">
+            <ion-icon name="home"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="category" (click)="showPage('category')">
+            <ion-icon name="list-box"></ion-icon>
+            <ion-label>Category</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="offer" (click)="showPage('offer')">
+            <ion-icon name="cash"></ion-icon>
+            <ion-label>Offer</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="about" (click)="showPage('about')">
+            <ion-icon name="information-circle"></ion-icon>
+            <ion-label>About</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+    -->
+</ion-content>

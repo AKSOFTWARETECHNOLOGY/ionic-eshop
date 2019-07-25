@@ -1,0 +1,105 @@
+.price-info {
+    font-size: 18px;
+}
+
+.price-info .price-was {
+    color:#999;
+    text-decoration: line-through;
+}
+
+.price-info .price-now {
+    color:#ff5406;
+}
+
+.price-info .price-offer {
+    color:#0078C1;
+}
+
+/* TAB CSS START */
+$cyan: #f1f1f1;
+$yellow: blue;
+$grey: #9e9e9e;
+
+$num-of-tabs: 4;
+
+@mixin tabs {
+  @for $i from 1 through $num-of-tabs {
+    &:nth-of-type(#{$i}) {
+      &:checked {
+        ~ .slide {
+          left: calc((100% / #{$num-of-tabs}) * #{$i - 1});
+        }
+      }
+    }
+  }
+}
+
+.tabs {
+    height: 600px;
+}
+
+.tab-wrap {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+input[type="radio"][name="tabs"] {
+  position: absolute;
+  z-index: -1;
+  &:checked {
+    + .tab-label-content {
+      label {
+        color: blue;
+      }
+      .tab-content {
+        display: block;
+      }
+    }
+  }
+  @include tabs;
+  &:first-of-type {
+    &:checked {
+      ~ .slide {
+        left: 0;
+      }
+    }
+  }
+}
+
+label {
+  cursor: pointer;
+  color: rgba(5, 5, 5, 0.8);
+  background-color: $cyan;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 56px;
+  transition: color 0.2s ease;
+  width: 100%;
+}
+
+.slide {
+  background: $yellow;
+  width: calc(100% / #{$num-of-tabs});
+  height: 4px;
+  position: absolute;
+  left: 0;
+  top: calc(100% - 4px);
+  transition: left 0.3s ease-out;
+}
+
+.tab-label-content {
+  width: 100%;
+  .tab-content {
+    position: absolute;
+    top: 100px;
+    left: 16px;
+    line-height: 130%;
+    display: none;
+  }
+}
+
+/* TAB CSS END */

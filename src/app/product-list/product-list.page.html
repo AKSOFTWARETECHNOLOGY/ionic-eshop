@@ -1,0 +1,114 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <img src="assets/icon/vc-logo.png" alt="VI" style="height: 50px;" />
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div style="height: 40px; padding-top:10px;">
+      <ion-title>{{categoryInfo.ctitle}}</ion-title>
+    </div>
+    <div>
+          <style>
+            div.inner-scroll { background: #f1f1f1X; } 
+            ion-list { width:50%; float: left; background: #f1f1f1X;  }  
+            ion-list ion-card-title { text-transform: uppercase; height: 50px; overflow: hidden;}
+          </style>
+          <ion-list class="category-products" *ngFor="let data of categoryProducts;let i=index;">
+            
+          <ion-card (click)="showProductPage('product-detail',data.pid)">
+            <img src="{{data.pimage}}"/>
+            <ion-card-header>
+              <ion-card-subtitle>{{categoryInfo.ctitle}}</ion-card-subtitle>
+              <ion-card-title>{{data.ptitle}}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        
+          </ion-list>
+        <!--
+          <ion-card>
+            <ion-item>
+              <ion-icon name="pin" slot="start"></ion-icon>
+              <ion-label>ion-item in a card, icon left, button right</ion-label>
+              <ion-button fill="outline" slot="end">View</ion-button>
+            </ion-item>
+          
+            <ion-card-content>
+              This is content, without any paragraph or header tags,
+              within an ion-card-content element.
+            </ion-card-content>
+          </ion-card>
+          
+          <ion-card>
+            <ion-item href="#" class="activated">
+              <ion-icon name="wifi" slot="start"></ion-icon>
+              <ion-label>Card Link Item 1 .activated</ion-label>
+            </ion-item>
+          
+            <ion-item href="#">
+              <ion-icon name="wine" slot="start"></ion-icon>
+              <ion-label>Card Link Item 2</ion-label>
+            </ion-item>
+          
+            <ion-item class="activated">
+              <ion-icon name="warning" slot="start"></ion-icon>
+              <ion-label>Card Button Item 1 .activated</ion-label>
+            </ion-item>
+          
+            <ion-item>
+              <ion-icon name="walk" slot="start"></ion-icon>
+              <ion-label>Card Button Item 2</ion-label>
+            </ion-item>
+          </ion-card>
+        -->  
+
+        <!--
+        <ion-list>
+        <ion-list-header>
+            Category Products
+        </ion-list-header>
+      </ion-list>
+        <ion-list class="category-products" *ngFor="let data of categoryProducts;let i=index;">
+          
+            <ion-item (click)="showProductPage('product-detail',data.pid)">
+              <ion-thumbnail slot="start">
+                <img src="{{data.pimage}}">
+              </ion-thumbnail>
+              <ion-label>
+                <h2>{{data.ptitle}}</h2>
+              </ion-label>
+            </ion-item>
+             
+          </ion-list>
+          -->
+           
+  </div>
+<!--
+        <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="home" (click)="showPage('home')">
+            <ion-icon name="home"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="category" (click)="showPage('category')">
+            <ion-icon name="list-box"></ion-icon>
+            <ion-label>Category</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="offer" (click)="showPage('offer')">
+            <ion-icon name="cash"></ion-icon>
+            <ion-label>Offer</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="about" (click)="showPage('about')">
+            <ion-icon name="information-circle"></ion-icon>
+            <ion-label>About</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+    -->
+</ion-content>
